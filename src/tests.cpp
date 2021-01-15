@@ -16,7 +16,42 @@ void Tests::tests_unitaires_formes()
 
 void Tests::tests_unitaires_vecteur()
 {
-   // Tests sur la classe Vecteur
+   cout << endl << "----------- Tests unitaires vecteur -----------" << endl << endl;
+
+   Vecteur<int> monVecteur;
+   assert("Construction vecteur (1 de 2)", monVecteur.capacity(), 1);
+   assert("Construction vecteur (2 de 2)", monVecteur.size(), 0);
+
+   assert("Detection vecteur vide (1 de 3)", monVecteur.isEmpty(), true);
+   assert("Retrait dun vecteur vide", monVecteur.popAt(0) == nullptr, true);
+   assert("Insertion dun element a la position 0", monVecteur.append(42), true);   
+   assert("Validation capacite (1 de 3)", monVecteur.capacity(), 1);
+   assert("Detection vecteur vide (2 de 3)", monVecteur.isEmpty(), false);
+   assert("Verification qte d'elements (1 de 2)", monVecteur.size(), 1);
+   assert("Lecture dun element", monVecteur.readAt(0) != nullptr, true);
+   if(monVecteur.readAt(0) != nullptr)
+      assert("Lecture dun element (suite)", *(monVecteur.readAt(0)), 42);
+   assert("Lecture dun element inexistant", monVecteur.readAt(60) == nullptr, true);
+
+   monVecteur.append(18);
+   assert("Validation capacite vecteur (2 de 3)", monVecteur.capacity(), 2);
+   assert("Validation rapport size() et capacite() (1 de 2)", monVecteur.size() <= monVecteur.capacity(), true);
+
+   monVecteur.append(96);
+   assert("Validation rapport size() et capacite() (2 de 2)", monVecteur.size() <= monVecteur.capacity(), true);
+   assert("Validation capacite vecteur (3 de 3)", monVecteur.capacity(), 4);
+
+   assert("Verification qte d'elements (2 de 2)", monVecteur.size(), 3);
+   assert("Retrait dun element", monVecteur.popAt(1) != nullptr && monVecteur.size() == 2, true);
+
+   int* readElement = monVecteur.readAt(1);
+   assert("Offset de tous les elements au retrait", readElement != nullptr, true);
+   if(readElement != nullptr)
+      assert("Offset de tous les elements au retrait (suite)", *(readElement), 0/*INSERER VALEUR A LA TROISIEME POSITION ICI (SERA OFFSET DE 1)*/);
+
+   monVecteur.clear();
+   assert("Validation vecteur vide", monVecteur.size(), 0);
+   assert("Detection vecteur vide (3 de 3)", monVecteur.isEmpty(), true);
 }
 
 void Tests::tests_unitaires_couche()
@@ -41,8 +76,10 @@ void Tests::tests_unitaires()
 void Tests::tests_application()
 {
    // Fait tous les tests applicatifs
-   tests_application_cas_01();
-   tests_application_cas_02();
+   // tests_application_cas_01();
+   // tests_application_cas_02();
+
+   tests_unitaires_vecteur();
 }
 
 void Tests::tests_application_cas_01()
@@ -55,4 +92,13 @@ void Tests::tests_application_cas_02()
 {
    cout << "TESTS APPLICATION (CAS 02)" << endl;  
     // Il faut ajouter les operations realisant ce scenario de test.
+}
+
+template<typename T>
+void Tests::assert(string testName, T passedValue, T expectedValue){
+   if(passedValue == expectedValue){
+      cout << GREEN << "REUSSI" << RESET << " : " << testName << endl;
+   }else{
+      cout << RED << "ECHOUE" << RESET << " : " << testName << endl;
+   }
 }

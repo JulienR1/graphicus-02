@@ -10,6 +10,7 @@
 
 #ifndef COUCHE_H
 #define COUCHE_H
+#include "vecteur.h"
 
 class Couche
 {

@@ -7,7 +7,7 @@ tests.o: src/tests.cpp includes/tests.h canevas.o
 canevas.o: src/canevas.cpp includes/canevas.h couche.o
 	g++ src/canevas.cpp -g -c
 
-couche.o: src/couche.cpp includes/couche.h forme.o
+couche.o: src/couche.cpp includes/couche.h forme.o includes/vecteur.h
 	g++ src/couche.cpp -g -c
 
 forme.o: src/forme.cpp includes/forme.h includes/coordonnee.h

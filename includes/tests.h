@@ -8,9 +8,14 @@
 ********/
 
 #include <iostream>
+#include <string.h>
 #include "canevas.h"
 
 using namespace std;
+
+#define GREEN "\033[32m"
+#define RED "\033[31m"
+#define RESET "\033[0m"
 
 class Tests
 {
@@ -26,4 +31,9 @@ public:
    void tests_application_cas_01();
    void tests_application_cas_02();
    void tests_application(); // Appel de tous les tests applicatifs
+
+private:
+   // Fonction pour faciliter la generation des resultats des tests
+   template<typename T>
+   void assert(string testName, T passedValue, T expectedValue);
 };
