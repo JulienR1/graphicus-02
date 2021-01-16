@@ -1,19 +1,21 @@
 #include <iostream>
-#include "forme.h"
+#include "rectangle.h"
 
 using namespace std;
 
-class Rectangle : public Forme{
+class Carre : public Rectangle{
 public :
-	Rectangle (int hauteur = 1, int largeur = 1);
-	~Rectangle();
+	Carre (int cote = 1);
+	~Carre();
 
 	virtual double aire();
 	void setHauteur(int newH);
 	void setLargeur(int newL);
+	void setCote(int newC);
 	int getHauteur()const;
 	int getLargeur()const;
+	int getCote()const;
 
 private :
-	int hauteur,largeur;
+	int cote;
 }
