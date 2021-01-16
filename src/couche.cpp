@@ -25,12 +25,10 @@ bool Couche::ajouterForme(Forme* laForme){
 			return false;
 		}
 	}
-	else{
-		return false;
-	}
+	return false;
 }
 
-bool Couche::translater(int delatX, int deltaY){
+bool Couche::translater(int deltaX, int deltaY){
 	if (etatCouche == Active){
 		for(int i=0; i<vecteur.size(); i++){ //Faut faire un bool, avec quoi je sais pas
 			(*(vecteur.readAt(i)))->translater(deltaX, deltaY);//Pointeur attention a verifier
@@ -50,18 +48,13 @@ bool Couche::reset(){
 	aireCouche = 0;
 	try{
 		for(int i=0; i<vecteur.size(); i++){ 
-			(*(vecteur.readAt(i)))->delete();//Pointeur attention a verifier
+			delete (*(vecteur.readAt(i)));//Pointeur attention a verifier
 		}
 	}
-	catch{
+	catch(std::exception e){
 		return false;
 	}
-	if(vecteur.clear() == true){
-		return true;
-	}
-	if(vecteur.clear() == false){
-		return false;
-	}
+	return vecteur.clear();
 }
 
 bool Couche::setEtat(etat lEtat){
@@ -90,7 +83,7 @@ bool Couche::setEtat(etat lEtat){
 
 Forme* Couche::retraitForme(int indexVect){
 	if (etatCouche == Active){
-		Forme* formeRetiree = vecteur.popAt(indexVect);
+		Forme* formeRetiree = *(vecteur.popAt(indexVect));
 		return formeRetiree; //vecteur retourne deja un pointeur null s'il y a erreur
 	}
 	else{
@@ -99,7 +92,7 @@ Forme* Couche::retraitForme(int indexVect){
 }
 
 Forme* Couche::getForme(int indexVect){
-		return vecteur.readAt(indexVect);
+		return *(vecteur.readAt(indexVect));
 }
 
 int Couche::aireTotale(){
@@ -118,12 +111,12 @@ void Couche::afficher(ostream & s){
 	else if(etatCouche == Initialisee){
 		cout<<"Couche initialisee"<<endl;
 	}
-	else if(etatCouche == Cache){
+	else if(etatCouche == Cachee){
 		cout<<"Couche cachee"<<endl;
 	}
 	else{
 		for(int i=0; i<vecteur.size(); i++){
-			cout<<(*(vecteur.readAt(i)))->afficher()<<endl;//Pointeur attention a verifier
+			(*(vecteur.readAt(i)))->afficher(cout); // pointeur a verifier
 		}
 	}
 }

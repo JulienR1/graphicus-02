@@ -5,7 +5,7 @@ using namespace std;
 
 class Carre : public Rectangle{
 public :
-	Carre (Coordonnee ancrage = {0,0}, int cote = 1);
+	Carre(Coordonnee ancrage = {0,0}, int cote = 1);
 	~Carre();
 
 	virtual double aire();
@@ -17,4 +17,4 @@ public :
 
 private :
 	int cote;
-}
+};

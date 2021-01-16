@@ -20,7 +20,7 @@ public:
 	Couche();
 	~Couche();
 	enum etat{ Initialisee, Active, Inactive, Cachee };
-	bool ajouterForme(Forme& laForme);
+	bool ajouterForme(Forme* laForme);
 	bool translater(int x, int y);
 	bool reset();
 	bool setEtat(etat);
