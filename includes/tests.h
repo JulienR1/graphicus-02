@@ -33,6 +33,8 @@ public:
    void tests_application_cas_02();
    void tests_application(); // Appel de tous les tests applicatifs
 
+   int testCounter = 0;
+
 private:
    // Fonction pour faciliter la generation des resultats des tests
    bool validateCoucheStatesAtStart(Couche* couches);

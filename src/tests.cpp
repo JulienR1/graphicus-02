@@ -125,7 +125,96 @@ void Tests::tests_unitaires_vecteur()
 
 void Tests::tests_unitaires_couche()
 {
-   // Tests sur la classe Couche
+   // Couche maCouche;
+   // assert("Condition initale", maCouche.getState(), INIT);
+   // assert("Calcul de laire (1 de 4)", maCouche.aire(), 0);
+   // assert("Activation dune couche (1 de 2)", maCouche.start(), true);
+   // assert("Activation dune couche (2 de 2)", maCouche.start(), false);
+
+   // Forme* maForme = new Rectangle();
+   // Forme* maForme2 = new Carre();
+   // assert("Retrait dune couche vide", maCouche.retirerForme(0) == nullptr, true);
+   // assert("Ajout dune forme (1 de 2)", maCouche.ajouterForme(maForme), true);
+   // assert("Ajout dune forme (2 de 3)", maCouche.ajouterForme(nullptr), false);
+   // maCouche.ajouterForme(maForme2);
+   // assert("Calcul de laire (2 de 4)", maCouche.aire(), 2);
+   // assert("Retrait dune forme (1 de 4)", &maCouche.retirerForme(0), &maForme);
+   // assert("Retrait dune forme (2 de 4)", maCouche.retirerForme(1) == nullptr, true);
+   // assert("Retrait dune forme (3 de 4)", maCouche.retirerForme(-1) == nullptr, true);
+
+   // assert("Desactivation dune couche (1 de 2)", maCouche.close(), true);
+   // assert("Desactivation dune couche (2 de 2)", maCouche.close(), false);
+   // assert("Calcul de laire (3 de 4)", maCouche.aire(), 1);
+   // assert("Ajout dune forme (3 de 3)", maCouche.ajouterForme(maForme), false);
+   // assert("Retrait dune forme (4 de 4)", maCouche.retirerForme(0) == nullptr, true);
+   // assert("Cacher une couche (1 de 4)", maCouche.cacher() == nullptr, true);
+   
+   // Couche maCouche2;
+   // assert("Cacher une couche (2 de 4)", maCouche2.cacher(), false);
+   // maCouche2.start();
+   // assert("Cacher une couche (3 de 4)", maCouche2.cacher(), true);
+   // assert("Cacher une couche (4 de 4)", maCouche2.cacher(), false);
+   // assert("Calcul de laire (4 de 4)", maCouche2.aire(), 0);
+   // assert("Translation invalide (1 de 3)", maCouche2.translater(10, 1), false);
+
+   // delete maForme;
+   // delete maForme2;
+
+   // Couche maCouche3;
+   // Forme* tForme1 = new Carre();
+   // Forme* tForme2 = new Cercle({1,1}, 2);
+   // Forme* tForme3 = new Rectangle({-5,41},2,4);
+   
+   // maCouche3.start();
+   // maCouche3.ajouterForme(tForme1);
+   // maCouche3.ajouterForme(tForme2);
+   // maCouche3.ajouterForme(tForme3);   
+
+   // maCouche3.translater(0,0);
+   // assert("Translation dune couche (1 de 2)", 
+   //    tForme1->getAncrage().x == 0 && tForme1->getAncrage().y == 0 &&
+   //    tForme2->getAncrage().x == 1 && tForme2->getAncrage().y == 1 &&
+   //    tForme3->getAncrage().x == -5 && tForme3->getAncrage().y == 41, true);
+
+   // maCouche3.translater(5,3);
+   // assert("Translation dune couche (2 de 2)", 
+   //    tForme1->getAncrage().x == 5 && tForme1->getAncrage().y == 3 &&
+   //    tForme2->getAncrage().x == 6 && tForme2->getAncrage().y == 4 &&
+   //    tForme3->getAncrage().x == 0 && tForme3->getAncrage().y == 44, true);
+
+   // assert("Reset dune couche (1 de 4)", maCouche3.aire() != 0, true);
+   // assert("Reset dune couche (2 de 4)", maCouche3.reset(), true);
+   // assert("Reset dune couche (3 de 4)", maCouche3.aire(), 0);
+   // assert("Reset dune couche (4 de 4)", maCouche3.getState(), INIT);
+   // assert("Translation invalide (2 de 3)", maCouche3.translater(10, 0), false)
+
+   // try{
+   //    tForme1->aire();
+   //    tForme2->aire();
+   //    tForme3->aire();
+   //    assert("Suppression des formes", true, false);
+
+   //    delete tForme1;
+   //    delete tForme2;
+   //    delete tForme3;
+   // }catch(exception e){
+   //    assert("Suppression des formes", true, true);
+   // }
+
+   // Couche maCouche4;   
+   // maCouche4.setEtat(ACTIVE);
+   // assert("Changement detat (1 de 4)", maCouche4.getEtat(), ACTIVE);
+   // maCouche4.setEtat(CACHEE);
+   // assert("Changement detat (2 de 4)", maCouche4.getEtat(), CACHEE);
+   // maCouche4.setEtat(INACTIVE);
+   // assert("Changement detat (3 de 4)", maCouche4.getEtat(), INACTIVE); 
+   // assert("Translation invalide (3 de 3)", maCouche4.translater(1,1), false);
+   // assert("Changement detat (4 de 4)", maCouche4.setEtat(INIT), false);
+
+   // maCouche.afficher();
+   // maCouche2.afficher();
+   // maCouche3.afficher();
+   // maCouche4.afficher();
 }
 
 void Tests::tests_unitaires_canevas()
@@ -226,8 +315,8 @@ bool Tests::validateCoucheStatesAtStart(Couche* couches){
 template<typename T>
 void Tests::assert(string testName, T passedValue, T expectedValue){
    if(passedValue == expectedValue){
-      cout << GREEN << "REUSSI" << RESET << " : " << testName << endl;
+      cout << "(" << (++testCounter) << ") " << GREEN << "REUSSI" << RESET << " : " << testName << endl;
    }else{
-      cout << RED << "ECHOUE" << RESET << " : " << testName << endl;
+      cout << "(" << (++testCounter) << ") " << RED << "ECHOUE" << RESET << " : " << testName << endl;
    }
 }
