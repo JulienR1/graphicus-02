@@ -17,6 +17,9 @@ Couche::~Couche(){
 }
 
 bool Couche::ajouterForme(Forme* laForme){
+	if(laForme == nullptr)
+		return false;
+
 	if (etatCouche == Active){
 		if(vecteur.append(laForme) == true){
 			return true;
@@ -58,7 +61,9 @@ bool Couche::reset(){
 }
 
 bool Couche::setEtat(etat lEtat){
-	
+	if(lEtat == Initialisee)
+		return false;
+
 	if (lEtat == Active){
 		etatCouche = Active;
 		if(etatCouche != Active){
@@ -83,8 +88,13 @@ bool Couche::setEtat(etat lEtat){
 
 Forme* Couche::retraitForme(int indexVect){
 	if (etatCouche == Active){
-		Forme* formeRetiree = *(vecteur.popAt(indexVect));
-		return formeRetiree; //vecteur retourne deja un pointeur null s'il y a erreur
+		Forme** formeRetireeEmplacement = vecteur.popAt(indexVect);
+		if(formeRetireeEmplacement != nullptr){
+			Forme* formeRetiree = *(formeRetireeEmplacement);
+			return formeRetiree; //vecteur retourne deja un pointeur null s'il y a erreur
+		}else{
+			return nullptr;
+		}
 	}
 	else{
 		return nullptr;
@@ -96,6 +106,7 @@ Forme* Couche::getForme(int indexVect){
 }
 
 int Couche::aireTotale(){
+	aireCouche = 0;
 	if(etatCouche != Initialisee && etatCouche != Cachee){
 		for(int i=0; i<vecteur.size(); i++){
 			aireCouche += (*(vecteur.readAt(i)))->aire();//Pointeur attention a verifier
@@ -119,4 +130,8 @@ void Couche::afficher(ostream & s){
 			(*(vecteur.readAt(i)))->afficher(cout); // pointeur a verifier
 		}
 	}
+}
+
+Couche::etat Couche::getState() const{
+	return etatCouche;
 }

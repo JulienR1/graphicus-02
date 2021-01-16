@@ -14,6 +14,10 @@ public :
 	int getHauteur()const;
 	int getLargeur()const;
   	virtual void afficher(ostream & s);
+
+	bool operator==(const Rectangle& b) const{
+    	return Forme::operator==(b) && getHauteur() == b.getHauteur() && getLargeur() == b.getLargeur();
+  	}
 	  
 private :
 	int hauteur,largeur;

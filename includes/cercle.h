@@ -14,6 +14,10 @@ public :
 	int getRayon()const;
   	virtual void afficher(ostream & s);
 	  
+	bool operator==(const Cercle& b) const{
+		return Forme::operator==(b) && getRayon() == b.getRayon();
+	}
+
 private :
 	int rayon;
 };

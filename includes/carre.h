@@ -15,6 +15,10 @@ public :
 	virtual bool setLargeur(int newL);
   	virtual void afficher(ostream & s);
 
+	bool operator==(const Carre& b) const{
+		return Rectangle::operator==(b) && getCote() == b.getCote();
+	}
+
 private :
 	int cote;
 };

@@ -28,6 +28,7 @@ public:
 	Forme* getForme(int indexVect);
 	int aireTotale();
 	void afficher(ostream & s);
+	etat getState() const;
 
 private:
 	Vecteur<Forme*> vecteur;

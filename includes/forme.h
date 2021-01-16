@@ -27,6 +27,10 @@ public:
   virtual double aire() = 0;
   virtual void afficher(ostream & s) = 0;
 
+  bool operator==(const Forme& b) const{
+    return ancrage.x == b.ancrage.x && ancrage.y == b.ancrage.y;
+  }
+
 protected:
 	Coordonnee ancrage;
 };
