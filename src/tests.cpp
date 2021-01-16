@@ -23,15 +23,18 @@ void Tests::tests_unitaires_vecteur()
    assert("Construction vecteur (2 de 2)", monVecteur.size(), 0);
 
    assert("Detection vecteur vide (1 de 3)", monVecteur.isEmpty(), true);
-   assert("Retrait dun vecteur vide", monVecteur.popAt(0) == nullptr, true);
-   assert("Insertion dun element a la position 0", monVecteur.append(42), true);   
+   assert("Retrait dun vecteur vide (1 de 2)", monVecteur.popAt(0) == nullptr, true);
+   assert("Retrait dun vecteur vide (2 de 2)", monVecteur.readAt(0) == nullptr, true);
+   assert("Insertion dun element", monVecteur.append(42), true);   
    assert("Validation capacite (1 de 3)", monVecteur.capacity(), 1);
    assert("Detection vecteur vide (2 de 3)", monVecteur.isEmpty(), false);
    assert("Verification qte d'elements (1 de 2)", monVecteur.size(), 1);
    assert("Lecture dun element", monVecteur.readAt(0) != nullptr, true);
    if(monVecteur.readAt(0) != nullptr)
       assert("Lecture dun element (suite)", *(monVecteur.readAt(0)), 42);
+
    assert("Lecture dun element inexistant", monVecteur.readAt(60) == nullptr, true);
+   assert("Lecture dun index negatif", monVecteur.readAt(-1) == nullptr, true);
 
    monVecteur.append(18);
    assert("Validation capacite vecteur (2 de 3)", monVecteur.capacity(), 2);
@@ -47,11 +50,18 @@ void Tests::tests_unitaires_vecteur()
    int* readElement = monVecteur.readAt(1);
    assert("Offset de tous les elements au retrait", readElement != nullptr, true);
    if(readElement != nullptr)
-      assert("Offset de tous les elements au retrait (suite)", *(readElement), 0/*INSERER VALEUR A LA TROISIEME POSITION ICI (SERA OFFSET DE 1)*/);
+      assert("Offset de tous les elements au retrait (suite)", *(readElement), 96);
+
+   cout << endl << "Le vecteur resultant:";
+   monVecteur.print();
+   cout << "Le vecteur attendu: [42, 96,  ,  ]" << endl << endl;
 
    monVecteur.clear();
    assert("Validation vecteur vide", monVecteur.size(), 0);
    assert("Detection vecteur vide (3 de 3)", monVecteur.isEmpty(), true);
+
+   cout << "Affichage vecteur vide: ";
+   monVecteur.print();   
 }
 
 void Tests::tests_unitaires_couche()

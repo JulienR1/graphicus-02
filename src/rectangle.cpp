@@ -1,4 +1,3 @@
-//Rectangle
 #include "../includes/rectangle.h"
 
 Rectangle::Rectangle(int h, int l){
@@ -10,9 +9,9 @@ Rectangle::~Rectangle(){
 }
 
 double Rectangle::aire(){
-	double aire;
-	aire = hauteur * largeur;
-	return aire;
+	double surface;
+	surface = hauteur * largeur;
+	return surface;
 }
 
 void Rectangle::setHauteur(int newH) {
