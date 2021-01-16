@@ -29,7 +29,9 @@ public:
 	Forme* getForme(int indexVect);
 	double aire();
 	void afficher(ostream & s);
+	
 	etat getState() const;
+	int qteDeForme() const;
 
 private:
 	Vecteur<Forme*> vecteur;

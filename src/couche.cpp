@@ -112,8 +112,11 @@ Forme* Couche::getForme(int indexVect){
 double Couche::aire(){
 	aireCouche = 0;
 	if(etatCouche != Initialisee && etatCouche != Cachee){
-		for(int i=0; i<vecteur.size(); i++){
-			aireCouche += (*(vecteur.readAt(i)))->aire();//Pointeur attention a verifier
+		for(int i=0; i<vecteur.size(); i++){			
+			Forme** emplacementForme = vecteur.readAt(i);
+			if(emplacementForme != nullptr){
+				aireCouche += (*emplacementForme)->aire();//Pointeur attention a verifier
+			}
 		}
 	}
 	return aireCouche;
@@ -138,4 +141,8 @@ void Couche::afficher(ostream & s){
 
 Couche::etat Couche::getState() const{
 	return etatCouche;
+}
+
+int Couche::qteDeForme() const{
+	return vecteur.size();
 }

@@ -129,7 +129,7 @@ void Tests::tests_unitaires_couche()
 
    Couche maCouche;
    assert("Condition initale", maCouche.getState(), Couche::etat::Initialisee);
-   assert("Calcul de laire (1 de 4)", maCouche.aireTotale(), 0);
+   assert("Calcul de laire (1 de 4)", maCouche.aire(), 0.0);
    assert("Activation dune couche (1 de 2)", maCouche.setEtat(Couche::etat::Active), true);
    assert("Initialisation dune couche active", maCouche.setEtat(Couche::etat::Initialisee), false);
 
@@ -139,13 +139,13 @@ void Tests::tests_unitaires_couche()
    assert("Ajout dune forme (1 de 2)", maCouche.ajouterForme(maForme), true);
    assert("Ajout dune forme (2 de 3)", maCouche.ajouterForme(nullptr), false);
    maCouche.ajouterForme(maForme2);
-   assert("Calcul de laire (2 de 4)", maCouche.aireTotale(), 2);
+   assert("Calcul de laire (2 de 4)", maCouche.aire(), 2.0);
    assert("Retrait dune forme (1 de 4)", *(maCouche.retraitForme(0)) == *(maForme), true);
    assert("Retrait dune forme (2 de 4)", maCouche.retraitForme(1) == nullptr, true);
    assert("Retrait dune forme (3 de 4)", maCouche.retraitForme(-1) == nullptr, true);
 
    assert("Desactivation dune couche", maCouche.setEtat(Couche::etat::Inactive), true);
-   assert("Calcul de laire (3 de 4)", maCouche.aireTotale(), 1);
+   assert("Calcul de laire (3 de 4)", maCouche.aire(), 1.0);
    assert("Ajout dune forme (3 de 3)", maCouche.ajouterForme(maForme), false);
    assert("Retrait dune forme (4 de 4)", maCouche.retraitForme(0) == nullptr, true);
    assert("Cacher une couche (1 de 3)", maCouche.setEtat(Couche::etat::Cachee), true);
@@ -153,7 +153,7 @@ void Tests::tests_unitaires_couche()
    Couche maCouche2;
    maCouche2.setEtat(Couche::etat::Active);
    assert("Cacher une couche (2 de 2)", maCouche2.setEtat(Couche::etat::Cachee), true);
-   assert("Calcul de laire (4 de 4)", maCouche2.aireTotale(), 0);
+   assert("Calcul de laire (4 de 4)", maCouche2.aire(), 0.0);
    assert("Translation invalide (1 de 3)", maCouche2.translater(10, 1), false);
 
    delete maForme;
@@ -181,9 +181,9 @@ void Tests::tests_unitaires_couche()
       tForme2->getAncrage().x == 6 && tForme2->getAncrage().y == 4 &&
       tForme3->getAncrage().x == 0 && tForme3->getAncrage().y == 44, true);
 
-   assert("Reset dune couche (1 de 4)", maCouche3.aireTotale() != 0, true);
+   assert("Reset dune couche (1 de 4)", maCouche3.aire() != 0, true);
    assert("Reset dune couche (2 de 4)", maCouche3.reset(), true);
-   assert("Reset dune couche (3 de 4)", maCouche3.aireTotale(), 0);
+   assert("Reset dune couche (3 de 4)", maCouche3.aire(), 0.0);
    assert("Reset dune couche (4 de 4)", maCouche3.getState(), Couche::etat::Initialisee);
    assert("Translation invalide (2 de 3)", maCouche3.translater(10, 0), false);
 
@@ -211,8 +211,8 @@ void Tests::tests_unitaires_canevas()
    assert("Couches correctement initialisees", validateCoucheStatesAtStart(monCanvas.getCoucheForTests()), true);
 
    assert("Activer couche (1 de 3)", monCanvas.activerCouche(1), true);
-   // assert("Activer couche (2 de 3)", monCanvas.getCoucheForTests()[1].state, ACTIVE);   
-   // assert("Activer couche (3 de 3)", monCanvas.getCoucheForTests()[0].state, INACTIVE);
+   assert("Activer couche (2 de 3)", monCanvas.getCoucheForTests()[1].getState(), Couche::etat::Active);   
+   assert("Activer couche (3 de 3)", monCanvas.getCoucheForTests()[0].getState(), Couche::etat::Inactive);
 
    Forme* maForme1 = new Rectangle({1,2},2,6);
    Forme* maForme2 = new Carre({-1,0},3);
@@ -220,9 +220,9 @@ void Tests::tests_unitaires_canevas()
    assert("Ajout de formes (1 de 6)", monCanvas.ajouterForme(maForme1), true);
    assert("Ajout de formes (2 de 6)", monCanvas.ajouterForme(maForme2), true);
    assert("Ajout de formes (3 de 6)", monCanvas.ajouterForme(maForme3), true);
-   // assert("Ajout de formes (4 de 6)", monCanvas.getCoucheForTests()[1].size(), 3;
+   assert("Ajout de formes (4 de 6)", monCanvas.getCoucheForTests()[1].qteDeForme(), 3);
    assert("Ajout de formes (5 de 6)", monCanvas.ajouterForme(nullptr), false);
-   // assert("Ajout de formes (6 de 6)", monCanvas.getCoucheForTests()[1].size(), 3);
+   assert("Ajout de formes (6 de 6)", monCanvas.getCoucheForTests()[1].qteDeForme(), 3);
    assert("Calcul de laire", abs(monCanvas.aire() - 24.14159) / 24.14159 < 0.00001, true);
    assert("Translater une couche (1 de 2)", monCanvas.translater(1,1), true);
    assert("Translater une couche (2 de 2)",
@@ -230,21 +230,18 @@ void Tests::tests_unitaires_canevas()
          maForme2->getAncrage().x == 0 && maForme2->getAncrage().y == 1 &&
          maForme3->getAncrage().x == 1 && maForme3->getAncrage().y == 1,
           true);
-   delete maForme1;
-   delete maForme2;
-   delete maForme3;
 
    assert("Retrait de formes (1 de 4)", monCanvas.retirerForme(1), true);
-   assert("Retrait de formes (2 de 4)", monCanvas.retirerForme(10), true);
-   assert("Retrait de formes (3 de 4)", monCanvas.retirerForme(-1), true);
-   // assert("Retrait de formes (4 de 4)", monCanvas.getCoucheForTests()[1].size(), 2);
+   assert("Retrait de formes (2 de 4)", monCanvas.retirerForme(10), false);
+   assert("Retrait de formes (3 de 4)", monCanvas.retirerForme(-1), false);
+   assert("Retrait de formes (4 de 4)", monCanvas.getCoucheForTests()[1].qteDeForme(), 2);
 
    Forme* maForme4 = new Rectangle();
    monCanvas.activerCouche(2);
    monCanvas.cacherCouche(2);
    assert("Ajout forme couche inactive", monCanvas.ajouterForme(maForme4), false);
    assert("Retirer forme couche inactive", monCanvas.retirerForme(0), false);
-   assert("Calcul aire couche inactive", monCanvas.aire(), 0.0);
+   assert("Calcul aire couche inactive", abs(monCanvas.aire() - 15.14159) / 15.14159 < 0.00001, true);
    monCanvas.activerCouche(1);
 
    assert("Reset du canevas (1 de 2)", monCanvas.reinitialiser(), true);
@@ -278,23 +275,19 @@ void Tests::tests_application_cas_02()
 }
 
 bool Tests::validateCoucheStatesAtStart(Couche* couches){
-// bool coucheInitCorrect = true;
-   // for(int i = 0; i < MAX_COUCHES; i++){
-      // if(couches[i] == NULL){
-      //    coucheInitCorrect = false;
-      //    break;
-      // }
-   //    if(i==0){
-   //       if(couches[i].state != ACTIVE){
-   //          coucheInitCorrect = false;
-   //       }
-   //    }else{
-   //       if(couches[i].state != INIT){
-   //          coucheInitCorrect = false;
-   //       }
-   //    }
-   // }
-   // return coucheInitCorrect;
+   bool coucheInitCorrect = true;
+   for(int i = 0; i < MAX_COUCHES; i++){      
+      if(i==0){
+         if(couches[i].getState() != Couche::etat::Active){
+            coucheInitCorrect = false;
+         }
+      }else{
+         if(couches[i].getState() != Couche::etat::Initialisee){
+            coucheInitCorrect = false;
+         }
+      }
+   }
+   return coucheInitCorrect;
    return false;
 }
 
