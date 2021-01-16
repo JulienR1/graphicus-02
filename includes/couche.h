@@ -17,7 +17,11 @@
 
 class Couche
 {
-   // Classe a completer
+public:
+	void ajouterForme(Forme& laForme);
+
+private:
+	Vecteur vecteur;
 };
 
 #endif
