@@ -20,4 +20,3 @@ void Cercle::setRayon(int newR) {
 int Cercle::getRayon()const{
 	return rayon;
 }
-

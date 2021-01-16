@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class Rectangle : public Forme{
+class Rectangle : public Forme {
 public :
 	Rectangle (int hauteur = 1, int largeur = 1);
 	~Rectangle();
@@ -13,8 +13,8 @@ public :
 	void setLargeur(int newL);
 	int getHauteur()const;//s
 	int getLargeur()const;
-	virtual void afficher();
-
+  	virtual void afficher(ostream & s);
+	  
 private :
 	int hauteur,largeur;
 };

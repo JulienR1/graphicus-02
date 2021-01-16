@@ -12,8 +12,8 @@ public :
 	virtual double aire();
 	void setRayon(int newR);
 	int getRayon()const;
-	virtual void afficher();
-
+  	virtual void afficher(ostream & s);
+	  
 private :
 	int rayon;
 };

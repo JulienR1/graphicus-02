@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class Carre : public Rectangle{
+class Carre : public Rectangle {
 public :
 	Carre (int cote = 1);
 	~Carre();
@@ -15,7 +15,7 @@ public :
 	int getHauteur()const;
 	int getLargeur()const;
 	int getCote()const;
-	virtual void afficher();
+  	virtual void afficher(ostream & s);
 
 private :
 	int cote;
