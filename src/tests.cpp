@@ -11,7 +11,64 @@
 
 void Tests::tests_unitaires_formes()
 {
-   // Tests sur les formes geometriques
+   // RECTANGLE
+   cout << endl << "----------- Tests unitaires rectangle -----------" << endl << endl;
+   Rectangle monRectangle;
+   // assert("Verification dimensions initiales (1)", monRectangle.getLargeur() == 1 && monRectangle.getHauteur() == 1, true);
+   // monRectangle.setLargeur(4);
+   // assert("Modification dune valeur (1 de 2)", monRectangle.getLargeur(), 4);
+   // monRectangle.setLongueur(7);
+   // assert("Modification dune valeur (2 de 2)", monRectangle.getLongueur(), 7);
+   // assert("Saisie de mesure invalide (1 de 2)", monRectangle.setLargeur(-1), false);
+   // assert("Saisie de mesure invalide (2 de 2)", monRectangle.setLongueur(-1), false);
+   // assert("Calcul de laire", monRectangle.aire(), 28);
+   monRectangle.afficher(cout);
+
+   // Rectangle autreRectangle(4,5);
+   // assert("Verification dimensions initiales (2)", autreRectangle.getLargeur() == 4 && autreRectangle.getLongueur() == 5, true);
+
+   // Rectangle rectangleInvalide(-1,-1);
+   // assert("Verification dimensions initiales (3)", rectangleInvalide.getLargeur() == 1 && rectangleInvalide.getLongueur() == 1, true);
+
+   // CARRE
+   cout << endl << "----------- Tests unitaires carre -----------" << endl << endl;
+   Carre monCarre;
+   // assert("Verification dimensions initiales (1)", monCarre.getSize(), 1);
+   // monCarre.setSize(4);   
+   // assert("Modification dune valeur", monCarre.getSize(4), 4);   
+   // assert("Saisie de mesure invalide", monRectangle.setSize(-1), false);
+   // assert("Calcul de laire", monCarre.aire(), 16);
+   monCarre.afficher(cout);
+
+   // Carre autreCarre(4);
+   // assert("Verification dimensions initiales (2)", autreCarre.getSize(), 4);
+
+   // Carre carreInvalide(-1);
+   // assert("Verification dimensions initiales (3)", carreInvalide.getSize(), 1);
+
+   Rectangle* pCarre = new Carre();
+   // pCarre->setLongueur(2);
+   // assert("Ecrasement du rectangle (1 de 2)", pCarre->getSize() != 2, true);
+   // pCarre->setLargeur(5);
+   // assert("Ecrasement du rectangle (1 de 2)", pCarre->getSize() != 5, true);
+   delete pCarre;
+
+
+   // CERCLE
+   cout << endl << "----------- Tests unitaires cercle -----------" << endl << endl;
+   Cercle monCercle;
+   // assert("Verification dimensions initiales (1)", monCercle.getRayon(), 1);
+   // monCercle.setRayon(2);
+   // assert("Modification du rayon", monCercle.getRayon(), 2);
+   // assert("Saisie de mesure invalide", monCercle.setRayon(-1), false);
+   // assert("Calcul de laire", abs(monCercle.aire() - 19.7392) / 19.7392 < 0.0001, true);
+   monCercle.afficher(cout);
+
+   // Cercle autreCercle(4);
+   // assert("Verification dimensions initiales (2)", monCercle.getRayon(), 4);
+
+   // Cercle cercleInvalide(-1);
+   // assert("Verification dimensions initiales (2)", cercleInvalide.getRayon(), 1);1
 }
 
 void Tests::tests_unitaires_vecteur()

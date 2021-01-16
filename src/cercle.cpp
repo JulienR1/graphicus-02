@@ -17,8 +17,9 @@ void Cercle::setRayon(int newR) {
 	rayon = newR;
 }
 
-int Rectangle::getRayon()const{
+int Cercle::getRayon()const{
 	return rayon;
+<<<<<<< HEAD
 }
 
 void Cercle::afficher(ostream & s){
@@ -26,3 +27,6 @@ void Cercle::afficher(ostream & s){
 	", aire="<<Cercle.aire()<<")"<<endl;
 }
 
+=======
+}
+>>>>>>> 2aa4b086627df30c7a3c5b3ef14c7bf250374a9e

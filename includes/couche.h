@@ -11,6 +11,9 @@
 #ifndef COUCHE_H
 #define COUCHE_H
 #include "vecteur.h"
+// #include "rectangle.h"
+#include "carre.h"
+#include "cercle.h"
 
 class Couche
 {
