@@ -9,9 +9,11 @@ public :
 	~Carre();
 
 	virtual double aire();
-	void setCote(int newC);
+	bool setCote(int newC);
 	int getCote()const;
-	virtual void afficher(ostream & s);
+	virtual bool setHauteur(int newH);
+	virtual bool setLargeur(int newL);
+  	virtual void afficher(ostream & s);
 
 private :
 	int cote;

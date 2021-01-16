@@ -1,8 +1,8 @@
 #include "../includes/rectangle.h"
 
 Rectangle::Rectangle(int h, int l){
-	hauteur = h;
-	largeur = l;
+	setHauteur(h);
+	setLargeur(l);
 }
 
 Rectangle::~Rectangle(){
@@ -14,23 +14,33 @@ double Rectangle::aire(){
 	return surface;
 }
 
-void Rectangle::setHauteur(int newH) {
-	hauteur = newH;
+bool Rectangle::setHauteur(int newH) {
+	if(newH > 0){
+		hauteur = newH;
+		return true;
+	}
+	hauteur = 1;
+	return false;
 }
 
-void Rectangle::setLargeur(int newL) {
-	largeur = newL;
+bool Rectangle::setLargeur(int newL) {
+	if(newL > 0){
+		largeur = newL;
+		return true;
+	}
+	largeur = 1;
+	return false;
 }
 
-int Rectangle::getHauteur()const{
+int Rectangle::getHauteur() const {
 	return hauteur;
 }
 
-int Rectangle::getLargeur()const{
+int Rectangle::getLargeur() const {
 	return largeur;
 }
 
 void Rectangle::afficher(ostream & s){
-	cout<<"(x="<<Rectangle.getAncrage().x<<", y="<<Rectangle.getAncrage().y<<", l="<<Rectangle.getLargeur()<<
-	", h="<<Rectangle.getHauteur()<<", aire="<<Rectangle.aire()<<")"<<endl;
+	cout<<"(x="<<getAncrage().x<<", y="<<getAncrage().y<<", l="<<getLargeur()<<
+	", h="<<getHauteur()<<", aire="<<aire()<<")"<<endl;
 }

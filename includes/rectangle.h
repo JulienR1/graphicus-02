@@ -9,13 +9,12 @@ public :
 	~Rectangle();
 
 	virtual double aire();
-	void setHauteur(int newH);
-	void setLargeur(int newL);
+	bool setHauteur(int newH);
+	bool setLargeur(int newL);
 	int getHauteur()const;
 	int getLargeur()const;
-	virtual void afficher(ostream & s);
   	virtual void afficher(ostream & s);
-
+	  
 private :
 	int hauteur,largeur;
 };
