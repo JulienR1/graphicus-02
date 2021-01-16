@@ -35,6 +35,7 @@ public:
 
 private:
    // Fonction pour faciliter la generation des resultats des tests
+   bool validateCoucheStatesAtStart(Couche* couches);
    template<typename T>
    void assert(string testName, T passedValue, T expectedValue);
 };

@@ -24,10 +24,11 @@ void Tests::tests_unitaires_formes()
    assert("Saisie de mesure invalide (2 de 2)", monRectangle.setHauteur(-1), false);
    monRectangle.afficher(cout);
 
-   Rectangle autreRectangle(4,5);
+   Rectangle autreRectangle({10,-10}, 4,5);
    assert("Verification dimensions initiales (2)", autreRectangle.getHauteur() == 4 && autreRectangle.getLargeur() == 5, true);
+   assert("Verification point dancrage", autreRectangle.getAncrage().x == 10 && autreRectangle.getAncrage().y == -10, true);
 
-   Rectangle rectangleInvalide(-1,-1);
+   Rectangle rectangleInvalide({1,2}, -1,-1);
    assert("Verification dimensions initiales (3)", rectangleInvalide.getHauteur() == 1 && rectangleInvalide.getLargeur() == 1, true);
 
    // CARRE
@@ -40,10 +41,11 @@ void Tests::tests_unitaires_formes()
    assert("Saisie de mesure invalide", monCarre.setCote(-1), false);
    monCarre.afficher(cout);
 
-   Carre autreCarre(4);
+   Carre autreCarre({5,6}, 4);
    assert("Verification dimensions initiales (2)", autreCarre.getCote(), 4);
+   assert("Verification point dancrage", autreCarre.getAncrage().x == 5 && autreCarre.getAncrage().y == 6, true);
 
-   Carre carreInvalide(-1);
+   Carre carreInvalide({0,0}, -1);
    assert("Verification dimensions initiales (3)", carreInvalide.getCote(), 1);
 
    Carre* pCarre = new Carre();
@@ -63,10 +65,11 @@ void Tests::tests_unitaires_formes()
    assert("Saisie de mesure invalide", monCercle.setRayon(-1), false);
    monCercle.afficher(cout);
 
-   Cercle autreCercle(4);
+   Cercle autreCercle({-2,-2}, 4);
    assert("Verification dimensions initiales (2)", autreCercle.getRayon(), 4);
+   assert("Verification point dancrage", autreCercle.getAncrage().x == -2 && autreCercle.getAncrage().y == -2, true);
 
-   Cercle cercleInvalide(-1);
+   Cercle cercleInvalide({0,0}, -1);
    assert("Verification dimensions initiales (2)", cercleInvalide.getRayon(), 1);
 }
 
@@ -127,7 +130,50 @@ void Tests::tests_unitaires_couche()
 
 void Tests::tests_unitaires_canevas()
 {
-   // Tests sur la classe Canevas
+   cout << endl << "----------- Tests unitaires canevas -----------" << endl << endl;
+   
+   Canevas monCanvas;
+   assert("Couches correctement initialisees", validateCoucheStatesAtStart(monCanvas.getCoucheForTests()), true);
+
+   assert("Activer couche (1 de 3)", monCanvas.activerCouche(1), true);
+   // assert("Activer couche (2 de 3)", monCanvas.getCoucheForTests()[1].state, ACTIVE);   
+   // assert("Activer couche (3 de 3)", monCanvas.getCoucheForTests()[0].state, INACTIVE);
+
+   Forme* maForme1 = new Rectangle({1,2},2,6);
+   Forme* maForme2 = new Carre({-1,0},3);
+   Forme* maForme3 = new Cercle();
+   assert("Ajout de formes (1 de 6)", monCanvas.ajouterForme(maForme1), true);
+   assert("Ajout de formes (2 de 6)", monCanvas.ajouterForme(maForme2), true);
+   assert("Ajout de formes (3 de 6)", monCanvas.ajouterForme(maForme3), true);
+   // assert("Ajout de formes (4 de 6)", monCanvas.getCoucheForTests()[1].size(), 3;
+   assert("Ajout de formes (5 de 6)", monCanvas.ajouterForme(nullptr), false);
+   // assert("Ajout de formes (6 de 6)", monCanvas.getCoucheForTests()[1].size(), 3);
+   assert("Calcul de laire", abs(monCanvas.aire() - 24.14159) / 24.14159 < 0.00001, true);
+   assert("Translater une couche (1 de 2)", monCanvas.translater(1,1), true);
+   assert("Translater une couche (2 de 2)",
+         maForme1->getAncrage().x == 2 && maForme1->getAncrage().y == 3 &&
+         maForme2->getAncrage().x == 0 && maForme2->getAncrage().y == 1 &&
+         maForme3->getAncrage().x == 1 && maForme3->getAncrage().y == 1,
+          true);
+   delete maForme1;
+   delete maForme2;
+   delete maForme3;
+
+   assert("Retrait de formes (1 de 4)", monCanvas.retirerForme(1), true);
+   assert("Retrait de formes (2 de 4)", monCanvas.retirerForme(10), true);
+   assert("Retrait de formes (3 de 4)", monCanvas.retirerForme(-1), true);
+   // assert("Retrait de formes (4 de 4)", monCanvas.getCoucheForTests()[1].size(), 2);
+
+   Forme* maForme4 = new Rectangle();
+   monCanvas.activerCouche(2);
+   monCanvas.cacherCouche(2);
+   assert("Ajout forme couche inactive", monCanvas.ajouterForme(maForme4), false);
+   assert("Retirer forme couche inactive", monCanvas.retirerForme(0), false);
+   assert("Calcul aire couche inactive", monCanvas.aire(), 0.0);
+   monCanvas.activerCouche(1);
+
+   assert("Reset du canevas (1 de 2)", monCanvas.reinitialiser(), true);
+   assert("Reset du canevas (2 de 2)", validateCoucheStatesAtStart(monCanvas.getCoucheForTests()), true);
 }
 
 void Tests::tests_unitaires()
@@ -141,23 +187,40 @@ void Tests::tests_unitaires()
 
 void Tests::tests_application()
 {
-   // Fait tous les tests applicatifs
-   // tests_application_cas_01();
-   // tests_application_cas_02();
-
    tests_unitaires();
+   tests_application_cas_01();
+   tests_application_cas_02();
 }
 
 void Tests::tests_application_cas_01()
 {
-   cout << "TESTS APPLICATION (CAS 01)" << endl; 
-   // Il faut ajouter les operations realisant ce scenario de test.
+   cout << endl << "TESTS APPLICATION (CAS 01)" << endl;
 }
 
 void Tests::tests_application_cas_02()
 {
-   cout << "TESTS APPLICATION (CAS 02)" << endl;  
-    // Il faut ajouter les operations realisant ce scenario de test.
+   cout << endl << "TESTS APPLICATION (CAS 02)" << endl;
+}
+
+bool Tests::validateCoucheStatesAtStart(Couche* couches){
+// bool coucheInitCorrect = true;
+   // for(int i = 0; i < MAX_COUCHES; i++){
+      // if(couches[i] == NULL){
+      //    coucheInitCorrect = false;
+      //    break;
+      // }
+   //    if(i==0){
+   //       if(couches[i].state != ACTIVE){
+   //          coucheInitCorrect = false;
+   //       }
+   //    }else{
+   //       if(couches[i].state != INIT){
+   //          coucheInitCorrect = false;
+   //       }
+   //    }
+   // }
+   // return coucheInitCorrect;
+   return false;
 }
 
 template<typename T>

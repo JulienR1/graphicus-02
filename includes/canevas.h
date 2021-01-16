@@ -36,6 +36,8 @@ public:
    bool translater(int deltaX, int deltaY);
    void afficher(ostream & s);
 
+   Couche* getCoucheForTests();
+
 private:
      Couche couches[MAX_COUCHES];
 };

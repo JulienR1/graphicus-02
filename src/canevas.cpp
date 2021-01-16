@@ -18,27 +18,27 @@ Canevas::~Canevas()
 
 bool Canevas::reinitialiser()
 {
-   return true;
+   return false;
 }
 
 bool Canevas::activerCouche(int index)
 {
-   return true;
+   return false;
 }
 
 bool Canevas::cacherCouche(int index)
 {
-   return true;
+   return false;
 }
 
 bool Canevas::ajouterForme(Forme *p_forme)
 {
-   return true;
+   return false;
 }
 
 bool Canevas::retirerForme(int index)
 {
-   return true;
+   return false;
 }
 
 double Canevas::aire()
@@ -48,9 +48,13 @@ double Canevas::aire()
 
 bool Canevas::translater(int deltaX, int deltaY)
 {
-   return true;
+   return false;
 }
 
 void Canevas::afficher(ostream & s)
 {
+}
+
+Couche* Canevas::getCoucheForTests(){
+   return couches;
 }

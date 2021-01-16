@@ -6,7 +6,7 @@ using namespace std;
 
 class Cercle: public Forme{
 public :
-	Cercle(int rayon = 1);
+	Cercle(Coordonnee ancrage = {0,0}, int rayon = 1);
 	~Cercle();
 
 	virtual double aire();

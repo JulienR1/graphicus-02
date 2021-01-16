@@ -1,6 +1,6 @@
 #include "../includes/carre.h"
 
-Carre::Carre(int c){
+Carre::Carre(Coordonnee ancrage, int c) : Rectangle(ancrage, c, c) {	
 	setCote(c);
 }
 

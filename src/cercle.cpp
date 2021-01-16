@@ -1,6 +1,6 @@
 #include "../includes/cercle.h"
 
-Cercle::Cercle(int r){
+Cercle::Cercle(Coordonnee ancrage, int r) : Forme(ancrage.x, ancrage.y){
 	setRayon(r);
 }
 
