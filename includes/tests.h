@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <string.h>
+#include <math.h>
 #include "canevas.h"
 
 using namespace std;

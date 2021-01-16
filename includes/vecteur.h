@@ -51,15 +51,14 @@ template<class T> class Vecteur{
         }
 
         T* popAt(const int index){
-            if(index >= 0 && index < size()){
-                T* poppedValue = &elements[index];
+            T* poppedValue = readAt(index);
+            if(poppedValue != nullptr){                
                 for(int i = index; i < size() - 1; i++){
                     elements[i] = elements[i + 1];
                 }
                 currentSize--;
-                return poppedValue;
             }
-		    return nullptr;
+		    return poppedValue;
         }
         
         T* readAt(const int index) const{
