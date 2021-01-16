@@ -16,6 +16,10 @@ Couche::Couche(){
 Couche::~Couche(){
 }
 
+bool Couche::isActive(){
+	return etatCouche == Active;
+}
+
 bool Couche::ajouterForme(Forme* laForme){
 	if(laForme == nullptr)
 		return false;
@@ -24,7 +28,7 @@ bool Couche::ajouterForme(Forme* laForme){
 		if(vecteur.append(laForme) == true){
 			return true;
 		}
-		if(vecteur.append(laForme) == false){
+		else{
 			return false;
 		}
 	}
@@ -105,7 +109,7 @@ Forme* Couche::getForme(int indexVect){
 		return *(vecteur.readAt(indexVect));
 }
 
-int Couche::aireTotale(){
+double Couche::aire(){
 	aireCouche = 0;
 	if(etatCouche != Initialisee && etatCouche != Cachee){
 		for(int i=0; i<vecteur.size(); i++){

@@ -20,19 +20,20 @@ public:
 	Couche();
 	~Couche();
 	enum etat{ Initialisee, Active, Inactive, Cachee };
+	bool isActive();
 	bool ajouterForme(Forme* laForme);
 	bool translater(int x, int y);
 	bool reset();
 	bool setEtat(etat);
 	Forme* retraitForme(int indexVect);
 	Forme* getForme(int indexVect);
-	int aireTotale();
+	double aire();
 	void afficher(ostream & s);
 	etat getState() const;
 
 private:
 	Vecteur<Forme*> vecteur;
-	int aireCouche;
+	double aireCouche;
 	etat etatCouche;
 };
 
