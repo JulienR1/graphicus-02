@@ -11,13 +11,28 @@
 #ifndef COUCHE_H
 #define COUCHE_H
 #include "vecteur.h"
-// #include "rectangle.h"
 #include "carre.h"
 #include "cercle.h"
 
 class Couche
 {
-   // Classe a completer
+public:
+	Couche();
+	~Couche();
+	enum etat{ Initialisee, Active, Inactive, Cachee };
+	bool ajouterForme(Forme& laForme);
+	bool translater(int x, int y);
+	bool reset();
+	bool setEtat(etat);
+	Forme* retraitForme(int indexVect);
+	Forme* getForme(int indexVect);
+	int aireTotale();
+	void afficher(ostream & s);
+
+private:
+	Vecteur<Forme*> vecteur;
+	int aireCouche;
+	etat etatCouche;
 };
 
 #endif

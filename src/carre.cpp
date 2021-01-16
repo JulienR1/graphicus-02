@@ -13,6 +13,7 @@ double Carre::aire(){
 	return surface;
 }
 
+
 bool Carre::setHauteur(int newH) {
 	return setCote(newH);
 }
@@ -38,3 +39,4 @@ void Carre::afficher(ostream & s){
 	cout<<"(x="<<getAncrage().x<<", y="<<getAncrage().y<<", c="<<getCote()<<
 	", aire="<<aire()<<")"<<endl;
 }
+

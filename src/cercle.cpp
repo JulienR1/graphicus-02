@@ -22,7 +22,7 @@ bool Cercle::setRayon(int newR) {
 	return false;
 }
 
-int Cercle::getRayon()const{
+int Rectangle::getRayon()const{
 	return rayon;
 }
 
@@ -30,3 +30,4 @@ void Cercle::afficher(ostream & s){
 	cout<<"(x="<<getAncrage().x<<", y="<<getAncrage().y<<", r="<<getRayon()<<
 	", aire="<<aire()<<")"<<endl;
 }
+>>>>>>> 5cbdbb9b324a45fa6a6b4ec0eb02323859160411

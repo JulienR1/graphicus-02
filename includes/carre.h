@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class Carre : public Rectangle {
+class Carre : public Rectangle{
 public :
 	Carre (Coordonnee ancrage = {0,0}, int cote = 1);
 	~Carre();
@@ -17,4 +17,4 @@ public :
 
 private :
 	int cote;
-};
+}
