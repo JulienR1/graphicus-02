@@ -11,7 +11,7 @@ public :
 	virtual double aire();
 	void setHauteur(int newH);
 	void setLargeur(int newL);
-	int getHauteur()const;
+	int getHauteur()const;//s
 	int getLargeur()const;
 	virtual void afficher();
 
