@@ -40,13 +40,7 @@ int Rectangle::getLargeur() const {
 	return largeur;
 }
 
-<<<<<<< HEAD
-void Rectangle::afficher(std::ostream&){
-
-}
-=======
 void Rectangle::afficher(ostream & s){
-	cout<<"(x="<<Rectangle.getAncrage().x<<", y="<<Rectangle.getAncrage().y<<", l="<<Rectangle.getLargeur()<<
-	", h="<<Rectangle.getHauteur()<<", aire="<<Rectangle.aire()<<")"<<endl;
+	cout<<"(x="<<getAncrage().x<<", y="<<getAncrage().y<<", l="<<getLargeur()<<
+	", h="<<getHauteur()<<", aire="<<aire()<<")"<<endl;
 }
->>>>>>> f848739430aada347a915c873a0dc3e13bc33e2c
