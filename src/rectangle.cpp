@@ -29,3 +29,8 @@ int Rectangle::getHauteur()const{
 int Rectangle::getLargeur()const{
 	return largeur;
 }
+
+void Rectangle::afficher(ostream & s){
+	cout<<"(x="<<Rectangle.getAncrage().x<<", y="<<Rectangle.getAncrage().y<<", l="<<Rectangle.getLargeur()<<
+	", h="<<Rectangle.getHauteur()<<", aire="<<Rectangle.aire()<<")"<<endl;
+}

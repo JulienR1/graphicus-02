@@ -11,8 +11,9 @@ public :
 	virtual double aire();
 	void setHauteur(int newH);
 	void setLargeur(int newL);
-	int getHauteur()const;//s
+	int getHauteur()const;
 	int getLargeur()const;
+	virtual void afficher(ostream & s);
 
 private :
 	int hauteur,largeur;
