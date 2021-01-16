@@ -1,7 +1,7 @@
 #include "../includes/carre.h"
 
 Carre::Carre(int c){
-	cote = c;
+	setCote(c);
 }
 
 Carre::~Carre(){
@@ -13,16 +13,21 @@ double Carre::aire(){
 	return surface;
 }
 
-void Carre::setHauteur(int newH) {
-	cote = newH;
+bool Carre::setHauteur(int newH) {
+	return setCote(newH);
 }
 
-void Carre::setLargeur(int newL) {
-	cote = newL;
+bool Carre::setLargeur(int newL) {
+	return setCote(newL);
 }
 
-void Carre::setCote(int newC) {
-	cote = newC;
+bool Carre::setCote(int newC) {
+	if(newC > 0){
+		cote = newC;
+		return true;
+	}
+	cote = 1;
+	return false;
 }
 
 int Carre::getHauteur()const{
@@ -35,4 +40,8 @@ int Carre::getLargeur()const{
 
 int Carre::getCote()const{
 	return cote;
+}
+
+void Carre::afficher(std::ostream&){
+
 }

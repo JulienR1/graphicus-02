@@ -10,7 +10,7 @@ public :
 	~Cercle();
 
 	virtual double aire();
-	void setRayon(int newR);
+	bool setRayon(int newR);
 	int getRayon()const;
   	virtual void afficher(ostream & s);
 	  

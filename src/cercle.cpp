@@ -1,7 +1,7 @@
 #include "../includes/cercle.h"
 
 Cercle::Cercle(int r){
-	rayon = r;
+	setRayon(r);
 }
 
 Cercle::~Cercle(){
@@ -13,10 +13,19 @@ double Cercle::aire(){
 	return surface;
 }
 
-void Cercle::setRayon(int newR) {
-	rayon = newR;
+bool Cercle::setRayon(int newR) {
+	if(newR > 0){
+		rayon = newR;
+		return true;
+	}
+	rayon = 1;
+	return false;
 }
 
 int Cercle::getRayon()const{
 	return rayon;
+}
+
+void Cercle::afficher(std::ostream&){
+
 }

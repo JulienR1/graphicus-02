@@ -9,9 +9,9 @@ public :
 	~Carre();
 
 	virtual double aire();
-	void setHauteur(int newH);
-	void setLargeur(int newL);
-	void setCote(int newC);
+	bool setHauteur(int newH);
+	bool setLargeur(int newL);
+	bool setCote(int newC);
 	int getHauteur()const;
 	int getLargeur()const;
 	int getCote()const;
