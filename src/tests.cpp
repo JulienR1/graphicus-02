@@ -24,10 +24,10 @@ void Tests::tests_unitaires_formes()
    // assert("Calcul de laire", monRectangle.aire(), 28);
    monRectangle.afficher(cout);
 
-   Rectangle autreRectangle(4,5);
+   // Rectangle autreRectangle(4,5);
    // assert("Verification dimensions initiales (2)", autreRectangle.getLargeur() == 4 && autreRectangle.getLongueur() == 5, true);
 
-   Rectangle rectangleInvalide(-1,-1);
+   // Rectangle rectangleInvalide(-1,-1);
    // assert("Verification dimensions initiales (3)", rectangleInvalide.getLargeur() == 1 && rectangleInvalide.getLongueur() == 1, true);
 
    // CARRE
@@ -40,10 +40,10 @@ void Tests::tests_unitaires_formes()
    // assert("Calcul de laire", monCarre.aire(), 16);
    monCarre.afficher(cout);
 
-   Carre autreCarre(4);
+   // Carre autreCarre(4);
    // assert("Verification dimensions initiales (2)", autreCarre.getSize(), 4);
 
-   Carre carreInvalide(-1);
+   // Carre carreInvalide(-1);
    // assert("Verification dimensions initiales (3)", carreInvalide.getSize(), 1);
 
    Rectangle* pCarre = new Carre();
@@ -64,10 +64,10 @@ void Tests::tests_unitaires_formes()
    // assert("Calcul de laire", abs(monCercle.aire() - 19.7392) / 19.7392 < 0.0001, true);
    monCercle.afficher(cout);
 
-   Cercle autreCercle(4);
+   // Cercle autreCercle(4);
    // assert("Verification dimensions initiales (2)", monCercle.getRayon(), 4);
 
-   Cercle cercleInvalide(-1);
+   // Cercle cercleInvalide(-1);
    // assert("Verification dimensions initiales (2)", cercleInvalide.getRayon(), 1);1
 }
 

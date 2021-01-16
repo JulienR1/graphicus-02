@@ -7,11 +7,20 @@ tests.o: src/tests.cpp includes/tests.h canevas.o
 canevas.o: src/canevas.cpp includes/canevas.h couche.o
 	g++ src/canevas.cpp -g -c
 
-couche.o: src/couche.cpp includes/couche.h forme.o includes/vecteur.h includes/temp.h
+couche.o: src/couche.cpp includes/couche.h forme.o includes/vecteur.h rectangle.o carre.o cercle.o
 	g++ src/couche.cpp -g -c
 
 forme.o: src/forme.cpp includes/forme.h includes/coordonnee.h
 	g++ src/forme.cpp -g -c
+
+rectangle.o: src/rectangle.cpp includes/rectangle.h forme.o
+	g++ src/rectangle.cpp -g -c
+
+carre.o: src/carre.cpp includes/carre.h rectangle.o forme.o
+	g++ src/carre.cpp -g -c
+
+cercle.o: src/cercle.cpp includes/cercle.h forme.o
+	g++ src/cercle.cpp -g -c
 
 clean:
 	rm -f *.o

@@ -15,7 +15,8 @@ public :
 	int getHauteur()const;
 	int getLargeur()const;
 	int getCote()const;
+	virtual void afficher();
 
 private :
 	int cote;
-}
+};

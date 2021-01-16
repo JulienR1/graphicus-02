@@ -17,7 +17,7 @@ void Cercle::setRayon(int newR) {
 	rayon = newR;
 }
 
-int Rectangle::getRayon()const{
+int Cercle::getRayon()const{
 	return rayon;
 }
 

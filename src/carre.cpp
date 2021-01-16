@@ -13,26 +13,26 @@ double Carre::aire(){
 	return surface;
 }
 
-void Rectangle::setHauteur(int newH) {
+void Carre::setHauteur(int newH) {
 	cote = newH;
 }
 
-void Rectangle::setLargeur(int newL) {
+void Carre::setLargeur(int newL) {
 	cote = newL;
 }
 
-void Rectangle::setCote(int newC) {
+void Carre::setCote(int newC) {
 	cote = newC;
 }
 
-int Rectangle::getHauteur()const{
+int Carre::getHauteur()const{
 	return cote;
 }
 
-int Rectangle::getLargeur()const{
+int Carre::getLargeur()const{
 	return cote;
 }
 
-int Rectangle::getCote()const{
+int Carre::getCote()const{
 	return cote;
 }

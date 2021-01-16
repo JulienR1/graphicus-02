@@ -13,7 +13,8 @@ public :
 	void setLargeur(int newL);
 	int getHauteur()const;
 	int getLargeur()const;
+	virtual void afficher();
 
 private :
 	int hauteur,largeur;
-}
+};
