@@ -260,18 +260,104 @@ void Tests::tests_unitaires()
 void Tests::tests_application()
 {
    tests_unitaires();
-   tests_application_cas_01();
-   tests_application_cas_02();
+   tests_application_cas_validation();
 }
 
-void Tests::tests_application_cas_01()
-{
-   cout << endl << "TESTS APPLICATION (CAS 01)" << endl;
-}
+void Tests::tests_application_cas_validation(){
+   testCounter = 0;
+   Canevas canvas;
+   cout << endl << endl << "----------- Scenario de tests validation -----------" << endl;
+   cout << "Affichage du canevas en cours:" << endl;
+   canvas.afficher(cout);
+   cout << endl << endl;
 
-void Tests::tests_application_cas_02()
-{
-   cout << endl << "TESTS APPLICATION (CAS 02)" << endl;
+   assert("Activation de la couche 1", canvas.activerCouche(1), true);
+   
+   Forme* rectangle = new Rectangle({10,10}, 2, 5);
+   Forme* carre = new Carre({-4,18}, 3);
+   Forme* cercle = new Cercle({1,1}, 1);
+   cout << endl << "Formes ajoutees au canevas:" << endl;
+   cout << "\tRectangle: ";
+   rectangle->afficher(cout);
+   cout << "\tCarre: ";
+   carre->afficher(cout);
+   cout << "\tCercle: ";
+   cercle->afficher(cout);
+   assert("Ajouts des formes au canevas", canvas.ajouterForme(rectangle) && canvas.ajouterForme(carre) && canvas.ajouterForme(cercle), true);
+
+   cout << endl;
+   assert("Activation de la couche 2", canvas.activerCouche(2), true);
+
+   Forme* uneFormeGeometrique = new Cercle({2, 3}, 25);
+   cout << "Forme ajoutee" << endl << "\tCercle: ";
+   uneFormeGeometrique->afficher(cout);
+   assert("Ajout dune forme geometrique (cercle)", canvas.ajouterForme(uneFormeGeometrique), true);
+
+   cout << endl;
+   assert("Affichage du canevas", true, true);
+   canvas.afficher(cout);
+
+   cout << endl;
+   double aireCanvas = canvas.aire();
+   assert("Aire du canevas", abs(aireCanvas - 1985.6415) / 1985.6145 < 0.0001, true);
+   cout << "Aire du canevas: " << aireCanvas << endl << endl;
+
+   assert("Activation de la couche 0", canvas.activerCouche(0), true);
+
+   Forme* forme1 = new Rectangle({0,0}, 1, 2);
+   Forme* forme2 = new Rectangle({24,-13}, 4, 2);
+   Forme* forme3 = new Rectangle({-1,-2}, 10, 1);
+   cout << endl << "Ajout de 3 formes geometriques differentes (Rectangles)" << endl;
+   cout << "\t";
+   forme1->afficher(cout);
+   cout << "\t";
+   forme2->afficher(cout);
+   cout << "\t";
+   forme3->afficher(cout);
+   assert("Ajout des formes", canvas.ajouterForme(forme1) && canvas.ajouterForme(forme2) && canvas.ajouterForme(forme3), true);
+
+   cout << endl;
+   assert("Cacher couche 2", canvas.cacherCouche(2), true);
+
+   cout << endl;
+   assert("Activer la couche 1", canvas.activerCouche(1), true);
+   
+   cout << endl;
+   assert("Translation de la couche de {12,15}", canvas.translater(12, 15), true);
+
+   cout << endl;
+   assert("Affichage du canevas", true, true);
+   canvas.afficher(cout);
+
+   cout << endl;
+   aireCanvas = canvas.aire();
+   assert("Aire du canevas", abs(aireCanvas - 42.14159) / 42.14159 < 0.0001, true);
+   cout << "Aire du canevas: " << aireCanvas << endl << endl;
+
+   cout << endl;
+   assert("Retirer la premiere forme de la couche", canvas.retirerForme(0), true);
+
+   cout << endl;
+   assert("Affichage du canevas", true, true);
+   canvas.afficher(cout);
+
+   cout << endl;
+   aireCanvas = canvas.aire();
+   assert("Aire du canevas", abs(aireCanvas - 32.14159) / 32.14159 < 0.0001, true);
+   cout << "Aire du canevas: " << aireCanvas << endl << endl;
+
+   cout << endl;
+   canvas.reinitialiser();
+   assert("Reinitialisation du canevas", true, true);
+
+   cout << endl;
+   assert("Affichage du canevas", true, true);
+   canvas.afficher(cout);
+
+   cout << endl;
+   aireCanvas = canvas.aire();
+   assert("Aire du canevas", aireCanvas, 0.0);
+   cout << "Aire du canevas: " << aireCanvas << endl << endl;
 }
 
 bool Tests::validateCoucheStatesAtStart(Couche* couches){

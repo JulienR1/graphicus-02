@@ -1,0 +1,118 @@
+
+
+----------- Scenario de tests validation -----------
+Affichage du canevas en cours:
+----- Couche 0
+Couche vide
+----- Couche 1
+Couche vide
+----- Couche 2
+Couche vide
+----- Couche 3
+Couche vide
+----- Couche 4
+Couche vide
+
+
+(1) [32mREUSSI[0m : Activation de la couche 1
+
+Formes ajoutees au canevas:
+	Rectangle: (x=10, y=10, l=5, h=2, aire=10)
+	Carre: (x=-4, y=18, c=3, aire=9)
+	Cercle: (x=1, y=1, r=1, aire=3.14159)
+(2) [32mREUSSI[0m : Ajouts des formes au canevas
+
+(3) [32mREUSSI[0m : Activation de la couche 2
+Forme ajoutee
+	Cercle: (x=2, y=3, r=25, aire=1963.5)
+(4) [32mREUSSI[0m : Ajout dune forme geometrique (cercle)
+
+(5) [32mREUSSI[0m : Affichage du canevas
+----- Couche 0
+Couche vide
+----- Couche 1
+(x=10, y=10, l=5, h=2, aire=10)
+(x=-4, y=18, c=3, aire=9)
+(x=1, y=1, r=1, aire=3.14159)
+----- Couche 2
+(x=2, y=3, r=25, aire=1963.5)
+----- Couche 3
+Couche vide
+----- Couche 4
+Couche vide
+
+(6) [32mREUSSI[0m : Aire du canevas
+Aire du canevas: 1985.64
+
+(7) [32mREUSSI[0m : Activation de la couche 0
+
+Ajout de 3 formes geometriques differentes (Rectangles)
+	(x=0, y=0, l=2, h=1, aire=2)
+	(x=24, y=-13, l=2, h=4, aire=8)
+	(x=-1, y=-2, l=1, h=10, aire=10)
+(8) [32mREUSSI[0m : Ajout des formes
+
+(9) [32mREUSSI[0m : Cacher couche 2
+
+(10) [32mREUSSI[0m : Activer la couche 1
+
+(11) [32mREUSSI[0m : Translation de la couche de {12,15}
+
+(12) [32mREUSSI[0m : Affichage du canevas
+----- Couche 0
+(x=0, y=0, l=2, h=1, aire=2)
+(x=24, y=-13, l=2, h=4, aire=8)
+(x=-1, y=-2, l=1, h=10, aire=10)
+----- Couche 1
+(x=22, y=25, l=5, h=2, aire=10)
+(x=8, y=33, c=3, aire=9)
+(x=13, y=16, r=1, aire=3.14159)
+----- Couche 2
+Couche cachee
+----- Couche 3
+Couche vide
+----- Couche 4
+Couche vide
+
+(13) [32mREUSSI[0m : Aire du canevas
+Aire du canevas: 42.1416
+
+
+(14) [32mREUSSI[0m : Retirer la premiere forme de la couche
+
+(15) [32mREUSSI[0m : Affichage du canevas
+----- Couche 0
+(x=0, y=0, l=2, h=1, aire=2)
+(x=24, y=-13, l=2, h=4, aire=8)
+(x=-1, y=-2, l=1, h=10, aire=10)
+----- Couche 1
+(x=8, y=33, c=3, aire=9)
+(x=13, y=16, r=1, aire=3.14159)
+----- Couche 2
+Couche cachee
+----- Couche 3
+Couche vide
+----- Couche 4
+Couche vide
+
+(16) [32mREUSSI[0m : Aire du canevas
+Aire du canevas: 32.1416
+
+
+(17) [32mREUSSI[0m : Reinitialisation du canevas
+
+(18) [32mREUSSI[0m : Affichage du canevas
+----- Couche 0
+Couche vide
+----- Couche 1
+Couche vide
+----- Couche 2
+Couche vide
+----- Couche 3
+Couche vide
+----- Couche 4
+Couche vide
+
+(19) [32mREUSSI[0m : Aire du canevas
+Aire du canevas: 0
+

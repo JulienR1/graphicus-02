@@ -1,0 +1,134 @@
+
+----------- Tests unitaires rectangle -----------
+
+(1) [32mREUSSI[0m : Verification dimensions initiales (1)
+(2) [32mREUSSI[0m : Modification dune valeur (1 de 4)
+(3) [32mREUSSI[0m : Modification dune valeur (2 de 4)
+(4) [32mREUSSI[0m : Modification dune valeur (3 de 4)
+(5) [32mREUSSI[0m : Modification dune valeur (4 de 4)
+(6) [32mREUSSI[0m : Calcul de laire
+(7) [32mREUSSI[0m : Saisie de mesure invalide (1 de 2)
+(8) [32mREUSSI[0m : Saisie de mesure invalide (2 de 2)
+(x=0, y=0, l=1, h=1, aire=1)
+(9) [32mREUSSI[0m : Verification dimensions initiales (2)
+(10) [32mREUSSI[0m : Verification point dancrage
+(11) [32mREUSSI[0m : Verification dimensions initiales (3)
+
+----------- Tests unitaires carre -----------
+
+(12) [32mREUSSI[0m : Verification dimensions initiales (1)
+(13) [32mREUSSI[0m : Modification dune valeur (1 de 2)
+(14) [32mREUSSI[0m : Modification dune valeur (2 de 2)
+(15) [32mREUSSI[0m : Calcul de laire
+(16) [32mREUSSI[0m : Saisie de mesure invalide
+(x=0, y=0, c=1, aire=1)
+(17) [32mREUSSI[0m : Verification dimensions initiales (2)
+(18) [32mREUSSI[0m : Verification point dancrage
+(19) [32mREUSSI[0m : Verification dimensions initiales (3)
+(20) [32mREUSSI[0m : Ecrasement du rectangle (1 de 2)
+(21) [32mREUSSI[0m : Ecrasement du rectangle (1 de 2)
+
+----------- Tests unitaires cercle -----------
+
+(22) [32mREUSSI[0m : Verification dimensions initiales (1)
+(23) [32mREUSSI[0m : Modification du rayon
+(24) [32mREUSSI[0m : Calcul de laire
+(25) [32mREUSSI[0m : Saisie de mesure invalide
+(x=0, y=0, r=1, aire=3.14159)
+(26) [32mREUSSI[0m : Verification dimensions initiales (2)
+(27) [32mREUSSI[0m : Verification point dancrage
+(28) [32mREUSSI[0m : Verification dimensions initiales (2)
+
+----------- Tests unitaires vecteur -----------
+
+(29) [32mREUSSI[0m : Construction vecteur (1 de 2)
+(30) [32mREUSSI[0m : Construction vecteur (2 de 2)
+(31) [32mREUSSI[0m : Detection vecteur vide (1 de 3)
+(32) [32mREUSSI[0m : Retrait dun vecteur vide (1 de 2)
+(33) [32mREUSSI[0m : Retrait dun vecteur vide (2 de 2)
+(34) [32mREUSSI[0m : Insertion dun element
+(35) [32mREUSSI[0m : Validation capacite (1 de 3)
+(36) [32mREUSSI[0m : Detection vecteur vide (2 de 3)
+(37) [32mREUSSI[0m : Verification qte d'elements (1 de 2)
+(38) [32mREUSSI[0m : Lecture dun element
+(39) [32mREUSSI[0m : Lecture dun element (suite)
+(40) [32mREUSSI[0m : Lecture dun element inexistant
+(41) [32mREUSSI[0m : Lecture dun index negatif
+(42) [32mREUSSI[0m : Validation capacite vecteur (2 de 3)
+(43) [32mREUSSI[0m : Validation rapport size() et capacite() (1 de 2)
+(44) [32mREUSSI[0m : Validation rapport size() et capacite() (2 de 2)
+(45) [32mREUSSI[0m : Validation capacite vecteur (3 de 3)
+(46) [32mREUSSI[0m : Verification qte d'elements (2 de 2)
+(47) [32mREUSSI[0m : Retrait dun element
+(48) [32mREUSSI[0m : Offset de tous les elements au retrait
+(49) [32mREUSSI[0m : Offset de tous les elements au retrait (suite)
+
+Le vecteur resultant:[42, 96,  ,  ]
+Le vecteur attendu: [42, 96,  ,  ]
+
+(50) [32mREUSSI[0m : Validation vecteur vide
+(51) [32mREUSSI[0m : Detection vecteur vide (3 de 3)
+Affichage vecteur vide: [ ]
+
+----------- Tests unitaires couches -----------
+
+(52) [32mREUSSI[0m : Condition initale
+(53) [32mREUSSI[0m : Calcul de laire (1 de 4)
+(54) [32mREUSSI[0m : Activation dune couche (1 de 2)
+(55) [32mREUSSI[0m : Initialisation dune couche active
+(56) [32mREUSSI[0m : Retrait dune couche vide
+(57) [32mREUSSI[0m : Ajout dune forme (1 de 2)
+(58) [32mREUSSI[0m : Ajout dune forme (2 de 3)
+(59) [32mREUSSI[0m : Calcul de laire (2 de 4)
+(60) [32mREUSSI[0m : Retrait dune forme (1 de 4)
+(61) [32mREUSSI[0m : Retrait dune forme (2 de 4)
+(62) [32mREUSSI[0m : Retrait dune forme (3 de 4)
+(63) [32mREUSSI[0m : Desactivation dune couche
+(64) [32mREUSSI[0m : Calcul de laire (3 de 4)
+(65) [32mREUSSI[0m : Ajout dune forme (3 de 3)
+(66) [32mREUSSI[0m : Retrait dune forme (4 de 4)
+(67) [32mREUSSI[0m : Cacher une couche (1 de 3)
+(68) [32mREUSSI[0m : Cacher une couche (2 de 2)
+(69) [32mREUSSI[0m : Calcul de laire (4 de 4)
+(70) [32mREUSSI[0m : Translation invalide (1 de 3)
+(71) [32mREUSSI[0m : Translation dune couche (1 de 2)
+(72) [32mREUSSI[0m : Translation dune couche (2 de 2)
+(73) [32mREUSSI[0m : Reset dune couche (1 de 4)
+(74) [32mREUSSI[0m : Reset dune couche (2 de 4)
+(75) [32mREUSSI[0m : Reset dune couche (3 de 4)
+(76) [32mREUSSI[0m : Reset dune couche (4 de 4)
+(77) [32mREUSSI[0m : Translation invalide (2 de 3)
+(78) [32mREUSSI[0m : Changement detat (1 de 4)
+(79) [32mREUSSI[0m : Changement detat (2 de 4)
+(80) [32mREUSSI[0m : Changement detat (3 de 4)
+(81) [32mREUSSI[0m : Translation invalide (3 de 3)
+(82) [32mREUSSI[0m : Changement detat (4 de 4)
+Couche cachee
+Couche vide
+Couche vide
+Couche vide
+
+----------- Tests unitaires canevas -----------
+
+(83) [32mREUSSI[0m : Couches correctement initialisees
+(84) [32mREUSSI[0m : Activer couche (1 de 3)
+(85) [32mREUSSI[0m : Activer couche (2 de 3)
+(86) [32mREUSSI[0m : Activer couche (3 de 3)
+(87) [32mREUSSI[0m : Ajout de formes (1 de 6)
+(88) [32mREUSSI[0m : Ajout de formes (2 de 6)
+(89) [32mREUSSI[0m : Ajout de formes (3 de 6)
+(90) [32mREUSSI[0m : Ajout de formes (4 de 6)
+(91) [32mREUSSI[0m : Ajout de formes (5 de 6)
+(92) [32mREUSSI[0m : Ajout de formes (6 de 6)
+(93) [32mREUSSI[0m : Calcul de laire
+(94) [32mREUSSI[0m : Translater une couche (1 de 2)
+(95) [32mREUSSI[0m : Translater une couche (2 de 2)
+(96) [32mREUSSI[0m : Retrait de formes (1 de 4)
+(97) [32mREUSSI[0m : Retrait de formes (2 de 4)
+(98) [32mREUSSI[0m : Retrait de formes (3 de 4)
+(99) [32mREUSSI[0m : Retrait de formes (4 de 4)
+(100) [32mREUSSI[0m : Ajout forme couche inactive
+(101) [32mREUSSI[0m : Retirer forme couche inactive
+(102) [32mREUSSI[0m : Calcul aire couche inactive
+(103) [32mREUSSI[0m : Reset du canevas (1 de 2)
+(104) [32mREUSSI[0m : Reset du canevas (2 de 2)
